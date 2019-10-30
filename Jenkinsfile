@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                sh 'mvn clean package'
+                sh '/var/tmp/apache-maven-3.6.2/bin/mvn clean package'
             }
             post{
                 success{
