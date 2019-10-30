@@ -17,5 +17,21 @@ pipeline{
                 build job: 'deploytostaging'
             }
         }
+        stage('Deply-to-ptod'){
+            steps{
+                timeout(time:5, unit:'MINUTES'){
+                    input message:'Approve production Deploy?'
+                }
+                build job: 'prod-deply'
+            }
+            post{
+                success{
+                    echo 'Code deployed to Production'
+                }
+                failure{
+                    echo 'Deplyment failed'
+                }
+            }
+        }
     }
 }
