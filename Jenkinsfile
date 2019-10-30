@@ -31,12 +31,12 @@ stages{
         parallel{
             stage('Deploy to staging'){
                 steps{
-                    sh "scp -i '/Users/rparuchuri/Downloads/jenkins.pem **/target/*.war ec2_user@${params.tomcat_stag}:/var/tmp/apache-tomcat-8.5.47-stag/webapps"
+                    sh "scp -i '/Users/rparuchuri/Downloads/jenkins.pem' **/target/*.war ec2_user@${params.tomcat_stag}:/var/tmp/apache-tomcat-8.5.47-stag/webapps"
                 }
             }
             stage( 'Deploy to Prod'){
                 steps{
-                    sh "scp -i '/Users/rparuchuri/Downloads/jenkins.pem **/target/*.war ec2_user@${params.tomcat_prod}:/var/tmp/apache-tomcat-8.5.47-prod/webapps"
+                    sh "scp -i '/Users/rparuchuri/Downloads/jenkins.pem' **/target/*.war ec2_user@${params.tomcat_prod}:/var/tmp/apache-tomcat-8.5.47-prod/webapps"
                 }
             }
 
