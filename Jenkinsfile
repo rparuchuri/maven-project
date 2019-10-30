@@ -31,12 +31,12 @@ stages{
         parallel{
             stage('Deploy to staging'){
                 steps{
-                    sh "cp -i '/Users/rparuchuri/Downloads/jenkins.pem' **/target/*.war /var/tmp/apache-tomcat-8.5.47-stag/webapps"
+                    sh "cp **/target/*.war /var/tmp/apache-tomcat-8.5.47-stag/webapps"
                 }
             }
             stage( 'Deploy to Prod'){
                 steps{
-                    sh "cp -i '/Users/rparuchuri/Downloads/jenkins.pem' **/target/*.war /var/tmp/apache-tomcat-8.5.47-prod/webapps"
+                    sh "cp **/target/*.war /var/tmp/apache-tomcat-8.5.47-prod/webapps"
                 }
             }
 
